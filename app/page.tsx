@@ -35,10 +35,14 @@ export default function Portfolio() {
 
   useEffect(() => {
     setIsLoaded(true)
+    // Default to dark mode if no preference or if preference is dark
     const savedTheme = localStorage.getItem("theme")
-    if (savedTheme === "dark") {
+    if (!savedTheme || savedTheme === "dark") {
       setIsDark(true)
       document.documentElement.classList.add("dark")
+    } else {
+      setIsDark(false)
+      document.documentElement.classList.remove("dark")
     }
   }, [])
 
@@ -133,9 +137,9 @@ export default function Portfolio() {
       {/* Ambient Background & Noise */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute inset-0 bg-noise opacity-[0.4] bg-repeat z-10"></div>
-        <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-500/5 dark:bg-white/5 blur-[120px] animate-blob mix-blend-multiply dark:mix-blend-soft-light"></div>
-        <div className="absolute top-[20%] right-[-10%] w-[40%] h-[40%] rounded-full bg-purple-500/5 dark:bg-white/5 blur-[120px] animate-blob delay-2000 mix-blend-multiply dark:mix-blend-soft-light"></div>
-        <div className="absolute bottom-[-10%] left-[20%] w-[40%] h-[40%] rounded-full bg-indigo-500/5 dark:bg-white/5 blur-[120px] animate-blob delay-4000 mix-blend-multiply dark:mix-blend-soft-light"></div>
+        <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] rounded-full bg-blue-500/20 blur-[120px] animate-blob"></div>
+        <div className="absolute top-[20%] right-[-10%] w-[40%] h-[40%] rounded-full bg-purple-500/20 blur-[120px] animate-blob delay-2000"></div>
+        <div className="absolute bottom-[-10%] left-[20%] w-[40%] h-[40%] rounded-full bg-indigo-500/20 blur-[120px] animate-blob delay-4000"></div>
       </div>
 
       <div className="relative z-10">
@@ -450,8 +454,8 @@ export default function Portfolio() {
                       key={section.id}
                       onClick={() => setActiveSection(section.id)}
                       className={`px-4 sm:px-5 py-2.5 sm:py-3 rounded-xl text-[13px] sm:text-[15px] font-medium transition-all duration-300 whitespace-nowrap ${activeSection === section.id
-                          ? "bg-foreground text-background shadow-[0_2px_8px_rgba(0,0,0,0.1)] dark:shadow-[0_2px_8px_rgba(255,255,255,0.1)]"
-                          : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                        ? "bg-foreground text-background shadow-[0_2px_8px_rgba(0,0,0,0.1)] dark:shadow-[0_2px_8px_rgba(255,255,255,0.1)]"
+                        : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
                         }`}
                       style={{
                         animation: `slideInLeft 0.5s cubic-bezier(0.16, 1, 0.3, 1) ${i * 0.05}s both`,
