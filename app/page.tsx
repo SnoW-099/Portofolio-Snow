@@ -304,12 +304,37 @@ export default function Portfolio() {
               </div>
               <h3 className="text-[24px] font-semibold mb-2 text-foreground">Roblox Systems</h3>
               <p className="text-[15px] sm:text-[16px] text-muted-foreground leading-relaxed mb-6">
-                Advanced modular systems for multiplayer games. Includes custom physics controllers,
-                inventory replication, and optimized data stores.
+                Complex mechanics including <strong>Combat Systems</strong>, <strong>Dash/Movement</strong> controllers, and <strong>Simulator</strong> loops.
+                Focus on modularity and performance.
               </p>
               <div className="flex flex-wrap gap-2 mt-auto">
                 <span className="text-[12px] font-medium px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground">LuaU</span>
                 <span className="text-[12px] font-medium px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground">Roblox API</span>
+              </div>
+            </div>
+
+            <div
+              className="md:col-span-2 group relative overflow-hidden rounded-[24px] bg-card border border-white/5 p-8 sm:p-10 hover:border-white/20 transition-all duration-500 hover:shadow-[0_0_50px_-12px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_0_50px_-12px_rgba(255,255,255,0.1)]"
+              style={{
+                opacity: isLoaded ? 1 : 0,
+                transform: isLoaded ? "translateY(0)" : "translateY(40px)",
+                transition: "all 1s cubic-bezier(0.16, 1, 0.3, 1) 1.2s",
+              }}
+            >
+              <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-500 text-[11px] font-medium uppercase tracking-wider">
+                Experiments
+              </div>
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-green-500/20 to-emerald-600/20 flex items-center justify-center mb-6 text-green-500">
+                <Terminal className="w-6 h-6" />
+              </div>
+              <h3 className="text-[24px] font-semibold mb-2 text-foreground">Web & Scripts</h3>
+              <p className="text-[15px] sm:text-[16px] text-muted-foreground leading-relaxed mb-6 max-w-[600px]">
+                I also build small websites and useful automation scripts. From simple HTML/CSS pages to Python utilities for data processing.
+              </p>
+              <div className="flex flex-wrap gap-2 mt-auto">
+                <span className="text-[12px] font-medium px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground">Python</span>
+                <span className="text-[12px] font-medium px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground">HTML/CSS</span>
+                <span className="text-[12px] font-medium px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground">Automation</span>
               </div>
             </div>
           </div>
