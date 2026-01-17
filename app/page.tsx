@@ -128,7 +128,6 @@ export default function Portfolio() {
     { name: "Copilot", desc: "Autocomplete", icon: Zap },
     { name: "DALL-E", desc: "Visuals", icon: Palette },
     { name: "Suno", desc: "Music", icon: Music },
-    { name: "v0", desc: "UI/UX", icon: Sparkles },
   ]
 
   const sections = [
@@ -570,7 +569,7 @@ export default function Portfolio() {
 
         <footer className="border-t border-border bg-card transition-colors duration-500">
           <div className="max-w-[980px] mx-auto px-4 sm:px-6 py-4 sm:py-5">
-            <p className="text-[11px] sm:text-[12px] text-muted-foreground">Made with care using v0</p>
+            <p className="text-[11px] sm:text-[12px] text-muted-foreground">© 2024 Angel. Built with Next.js & Tailwind.</p>
           </div>
         </footer>
 
