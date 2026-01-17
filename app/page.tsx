@@ -106,6 +106,7 @@ export default function Portfolio() {
     { name: "Python", level: 85 },
     { name: "LuaU", level: 90 },
     { name: "JavaScript", level: 75 },
+    { name: "HTML / CSS", level: 80 },
     { name: "GDScript", level: 70 },
   ]
 
