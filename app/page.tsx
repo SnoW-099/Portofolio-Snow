@@ -252,8 +252,7 @@ export default function Portfolio() {
               <button
                 onClick={() => {
                   setActiveSection("contact")
-                  const element = document.querySelector("footer")?.previousElementSibling
-                  element?.scrollIntoView({ behavior: "smooth" })
+                  window.scrollTo({ top: document.body.scrollHeight, behavior: "smooth" })
                 }}
                 className="inline-flex items-center gap-2 text-[16px] sm:text-[18px] text-foreground font-medium transition-all duration-500 px-8 py-3 rounded-full border border-foreground/10 hover:bg-foreground/5 hover:border-foreground/20"
               >
