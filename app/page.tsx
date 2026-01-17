@@ -250,24 +250,18 @@ export default function Portfolio() {
               </button>
 
               <button
-                onClick={() => setActiveSection("contact")}
+                onClick={() => {
+                  setActiveSection("contact")
+                  const element = document.querySelector("footer")?.previousElementSibling
+                  element?.scrollIntoView({ behavior: "smooth" })
+                }}
                 className="inline-flex items-center gap-2 text-[16px] sm:text-[18px] text-foreground font-medium transition-all duration-500 px-8 py-3 rounded-full border border-foreground/10 hover:bg-foreground/5 hover:border-foreground/20"
               >
                 Contact Me
               </button>
             </div>
 
-            <div
-              className="absolute bottom-8 sm:bottom-12 left-1/2 -translate-x-1/2"
-              style={{
-                opacity: isLoaded ? 1 : 0,
-                transition: "opacity 1s ease 1.5s",
-              }}
-            >
-              <div className="w-5 h-8 sm:w-6 sm:h-10 rounded-full border-2 border-border flex justify-center p-2">
-                <div className="w-1 h-2 bg-muted-foreground rounded-full animate-scroll-bounce" />
-              </div>
-            </div>
+
           </div>
         </section>
 
@@ -354,7 +348,7 @@ export default function Portfolio() {
                     <DialogHeader className="p-4 border-b border-white/10 bg-[#161b22]">
                       <DialogTitle className="flex items-center gap-2 text-white font-mono text-sm">
                         <Code2 className="w-4 h-4 text-blue-400" />
-                        RunAndSlide_System.lua
+                        Run_System.lua
                       </DialogTitle>
                     </DialogHeader>
                     <div className="flex-1 overflow-auto p-4 custom-scrollbar">
