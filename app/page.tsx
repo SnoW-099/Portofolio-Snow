@@ -348,6 +348,7 @@ export default function Portfolio() {
                     <button className="flex items-center gap-1.5 ml-auto text-[12px] font-medium px-3 py-1.5 rounded-full bg-blue-500/10 text-blue-500 hover:bg-blue-500/20 transition-colors cursor-pointer border border-blue-500/20">
                       <FileCode className="w-3.5 h-3.5" />
                       View Code
+                    </button>
                   </DialogTrigger>
                   <DialogContent className="max-w-3xl max-h-[80vh] flex flex-col p-0 gap-0 overflow-hidden bg-[#0d1117] border-white/10">
                     <DialogHeader className="p-4 border-b border-white/10 bg-[#161b22]">
