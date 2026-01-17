@@ -248,6 +248,72 @@ export default function Portfolio() {
           </div>
         </section>
 
+        {/* Selected Works Section */}
+        <section className="px-4 sm:px-6 py-12 sm:py-24 max-w-[980px] mx-auto">
+          <h2
+            className="text-[32px] sm:text-[40px] font-semibold tracking-[-0.015em] mb-8 sm:mb-12 text-foreground"
+            style={{
+              opacity: isLoaded ? 1 : 0,
+              transform: isLoaded ? "translateY(0)" : "translateY(30px)",
+              transition: "all 1s cubic-bezier(0.16, 1, 0.3, 1) 0.8s",
+            }}
+          >
+            Selected Works.
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+            <div
+              className="group relative overflow-hidden rounded-[24px] bg-card border border-white/5 p-8 sm:p-10 hover:border-white/20 transition-all duration-500 hover:shadow-[0_0_50px_-12px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_0_50px_-12px_rgba(255,255,255,0.1)]"
+              style={{
+                opacity: isLoaded ? 1 : 0,
+                transform: isLoaded ? "translateY(0)" : "translateY(40px)",
+                transition: "all 1s cubic-bezier(0.16, 1, 0.3, 1) 1s",
+              }}
+            >
+              <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-500 text-[11px] font-medium uppercase tracking-wider">
+                In Development
+              </div>
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-500/20 to-red-600/20 flex items-center justify-center mb-6 text-orange-500">
+                <Gamepad2 className="w-6 h-6" />
+              </div>
+              <h3 className="text-[24px] font-semibold mb-2 text-foreground">Neon Survivors</h3>
+              <p className="text-[15px] sm:text-[16px] text-muted-foreground leading-relaxed mb-6">
+                A fast-paced top-down roguelite. Think <em>Binding of Isaac</em> meets <em>Brotato</em>.
+                Survive endless waves, stack crazy synergies, and break the game.
+              </p>
+              <div className="flex flex-wrap gap-2 mt-auto">
+                <span className="text-[12px] font-medium px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground">Godot 4</span>
+                <span className="text-[12px] font-medium px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground">GDScript</span>
+              </div>
+            </div>
+
+            <div
+              className="group relative overflow-hidden rounded-[24px] bg-card border border-white/5 p-8 sm:p-10 hover:border-white/20 transition-all duration-500 hover:shadow-[0_0_50px_-12px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_0_50px_-12px_rgba(255,255,255,0.1)]"
+              style={{
+                opacity: isLoaded ? 1 : 0,
+                transform: isLoaded ? "translateY(0)" : "translateY(40px)",
+                transition: "all 1s cubic-bezier(0.16, 1, 0.3, 1) 1.1s",
+              }}
+            >
+              <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-500 text-[11px] font-medium uppercase tracking-wider">
+                Showcase
+              </div>
+              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500/20 to-indigo-600/20 flex items-center justify-center mb-6 text-blue-500">
+                <Code2 className="w-6 h-6" />
+              </div>
+              <h3 className="text-[24px] font-semibold mb-2 text-foreground">Roblox Systems</h3>
+              <p className="text-[15px] sm:text-[16px] text-muted-foreground leading-relaxed mb-6">
+                Advanced modular systems for multiplayer games. Includes custom physics controllers,
+                inventory replication, and optimized data stores.
+              </p>
+              <div className="flex flex-wrap gap-2 mt-auto">
+                <span className="text-[12px] font-medium px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground">LuaU</span>
+                <span className="text-[12px] font-medium px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground">Roblox API</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
         <section className="px-4 sm:px-6 pb-16 sm:pb-20 lg:pb-24">
           <div className="max-w-[980px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-2.5 sm:gap-3">
             <div
