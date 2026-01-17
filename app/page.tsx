@@ -21,7 +21,19 @@ import {
   Sparkles,
   Moon,
   Sun,
+  Eye,
+  FileCode,
+  Mail,
 } from "lucide-react"
+import { robloxScript } from "@/components/roblox-script"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
 
 export default function Portfolio() {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -196,7 +208,7 @@ export default function Portfolio() {
             </p>
 
             <h1
-              className="text-[48px] sm:text-[64px] md:text-[80px] lg:text-[96px] font-semibold tracking-[-0.015em] leading-[1.05] text-foreground mb-4 sm:mb-6 px-2"
+              className="text-[56px] sm:text-[72px] md:text-[88px] lg:text-[104px] font-semibold tracking-[-0.015em] leading-[1.05] text-foreground mb-4 sm:mb-6 px-2"
               style={{
                 opacity: isLoaded ? 1 : 0,
                 transform: isLoaded ? "translateY(0) scale(1)" : "translateY(50px) scale(0.95)",
@@ -227,11 +239,21 @@ export default function Portfolio() {
               }}
             >
               <button
-                onClick={() => setIsMenuOpen(true)}
-                className="inline-flex items-center gap-2 text-[15px] sm:text-[17px] text-[#0066cc] hover:text-[#0077ed] font-normal transition-all duration-500 group relative overflow-hidden px-5 sm:px-6 py-2.5 sm:py-3 rounded-full hover:bg-[#0066cc]/5"
+                onClick={() => {
+                  const element = document.getElementById("selected-works")
+                  element?.scrollIntoView({ behavior: "smooth" })
+                }}
+                className="inline-flex items-center gap-2 text-[16px] sm:text-[18px] text-white font-medium transition-all duration-500 group relative overflow-hidden px-8 py-3 rounded-full bg-[#0066cc] hover:bg-[#0077ed] hover:scale-105 hover:shadow-[0_0_20px_-5px_rgba(0,102,204,0.5)]"
               >
-                <span className="relative z-10">Learn more about me</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform duration-500" />
+                <span className="relative z-10">See my work</span>
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-500" />
+              </button>
+
+              <button
+                onClick={() => setActiveSection("contact")}
+                className="inline-flex items-center gap-2 text-[16px] sm:text-[18px] text-foreground font-medium transition-all duration-500 px-8 py-3 rounded-full border border-foreground/10 hover:bg-foreground/5 hover:border-foreground/20"
+              >
+                Contact Me
               </button>
             </div>
 
@@ -250,7 +272,7 @@ export default function Portfolio() {
         </section>
 
         {/* Selected Works Section */}
-        <section className="px-4 sm:px-6 py-12 sm:py-24 max-w-[980px] mx-auto">
+        <section id="selected-works" className="px-4 sm:px-6 py-12 sm:py-24 max-w-[980px] mx-auto">
           <h2
             className="text-[32px] sm:text-[40px] font-semibold tracking-[-0.015em] mb-8 sm:mb-12 text-foreground"
             style={{
@@ -263,20 +285,25 @@ export default function Portfolio() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
+            {/* Project 1: Neon Survivors */}
             <div
-              className="group relative overflow-hidden rounded-[24px] bg-card border border-white/5 p-8 sm:p-10 hover:border-white/20 transition-all duration-500 hover:shadow-[0_0_50px_-12px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_0_50px_-12px_rgba(255,255,255,0.1)]"
+              className="group relative overflow-hidden rounded-[24px] bg-card border border-white/5 p-6 hover:border-white/20 transition-all duration-500 hover:shadow-[0_0_50px_-12px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_0_50px_-12px_rgba(255,255,255,0.1)] flex flex-col"
               style={{
                 opacity: isLoaded ? 1 : 0,
                 transform: isLoaded ? "translateY(0)" : "translateY(40px)",
                 transition: "all 1s cubic-bezier(0.16, 1, 0.3, 1) 1s",
               }}
             >
-              <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-500 text-[11px] font-medium uppercase tracking-wider">
-                In Development
+              {/* Thumbnail */}
+              <div className="h-48 w-full bg-gradient-to-br from-orange-900/20 to-red-900/20 rounded-xl mb-6 relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-500 border border-white/5">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Gamepad2 className="w-12 h-12 text-orange-500/40" />
+                </div>
+                <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-orange-400 text-[11px] font-medium uppercase tracking-wider">
+                  In Development
+                </div>
               </div>
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-orange-500/20 to-red-600/20 flex items-center justify-center mb-6 text-orange-500">
-                <Gamepad2 className="w-6 h-6" />
-              </div>
+
               <h3 className="text-[24px] font-semibold mb-2 text-foreground">Neon Survivors</h3>
               <p className="text-[15px] sm:text-[16px] text-muted-foreground leading-relaxed mb-6">
                 A fast-paced top-down roguelite. Think <em>Binding of Isaac</em> meets <em>Brotato</em>.
@@ -288,53 +315,86 @@ export default function Portfolio() {
               </div>
             </div>
 
+            {/* Project 2: Roblox Systems */}
             <div
-              className="group relative overflow-hidden rounded-[24px] bg-card border border-white/5 p-8 sm:p-10 hover:border-white/20 transition-all duration-500 hover:shadow-[0_0_50px_-12px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_0_50px_-12px_rgba(255,255,255,0.1)]"
+              className="group relative overflow-hidden rounded-[24px] bg-card border border-white/5 p-6 hover:border-white/20 transition-all duration-500 hover:shadow-[0_0_50px_-12px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_0_50px_-12px_rgba(255,255,255,0.1)] flex flex-col"
               style={{
                 opacity: isLoaded ? 1 : 0,
                 transform: isLoaded ? "translateY(0)" : "translateY(40px)",
                 transition: "all 1s cubic-bezier(0.16, 1, 0.3, 1) 1.1s",
               }}
             >
-              <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-500 text-[11px] font-medium uppercase tracking-wider">
-                Showcase
+              {/* Thumbnail */}
+              <div className="h-48 w-full bg-gradient-to-br from-blue-900/20 to-indigo-900/20 rounded-xl mb-6 relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-500 border border-white/5">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Code2 className="w-12 h-12 text-blue-500/40" />
+                </div>
+                <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-blue-400 text-[11px] font-medium uppercase tracking-wider">
+                  Showcase
+                </div>
               </div>
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-blue-500/20 to-indigo-600/20 flex items-center justify-center mb-6 text-blue-500">
-                <Code2 className="w-6 h-6" />
-              </div>
+
               <h3 className="text-[24px] font-semibold mb-2 text-foreground">Roblox Systems</h3>
               <p className="text-[15px] sm:text-[16px] text-muted-foreground leading-relaxed mb-6">
                 Complex mechanics including <strong>Combat Systems</strong>, <strong>Dash/Movement</strong> controllers, and <strong>Simulator</strong> loops.
                 Focus on modularity and performance.
               </p>
-              <div className="flex flex-wrap gap-2 mt-auto">
+              <div className="flex flex-wrap items-center gap-3 mt-auto">
                 <span className="text-[12px] font-medium px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground">LuaU</span>
                 <span className="text-[12px] font-medium px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground">Roblox API</span>
+
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <button className="flex items-center gap-1.5 ml-auto text-[12px] font-medium px-3 py-1.5 rounded-full bg-blue-500/10 text-blue-500 hover:bg-blue-500/20 transition-colors cursor-pointer border border-blue-500/20">
+                      <FileCode className="w-3.5 h-3.5" />
+                      View Code
+                  </DialogTrigger>
+                  <DialogContent className="max-w-3xl max-h-[80vh] flex flex-col p-0 gap-0 overflow-hidden bg-[#0d1117] border-white/10">
+                    <DialogHeader className="p-4 border-b border-white/10 bg-[#161b22]">
+                      <DialogTitle className="flex items-center gap-2 text-white font-mono text-sm">
+                        <Code2 className="w-4 h-4 text-blue-400" />
+                        RunAndSlide_System.lua
+                      </DialogTitle>
+                    </DialogHeader>
+                    <div className="flex-1 overflow-auto p-4 custom-scrollbar">
+                      <pre className="font-mono text-sm leading-relaxed text-[#c9d1d9]">
+                        <code>{robloxScript}</code>
+                      </pre>
+                    </div>
+                  </DialogContent>
+                </Dialog>
               </div>
             </div>
 
+            {/* Project 3: Web & Scripts */}
             <div
-              className="md:col-span-2 group relative overflow-hidden rounded-[24px] bg-card border border-white/5 p-8 sm:p-10 hover:border-white/20 transition-all duration-500 hover:shadow-[0_0_50px_-12px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_0_50px_-12px_rgba(255,255,255,0.1)]"
+              className="md:col-span-2 group relative overflow-hidden rounded-[24px] bg-card border border-white/5 p-6 hover:border-white/20 transition-all duration-500 hover:shadow-[0_0_50px_-12px_rgba(0,0,0,0.2)] dark:hover:shadow-[0_0_50px_-12px_rgba(255,255,255,0.1)] flex flex-col md:flex-row gap-6 md:items-center"
               style={{
                 opacity: isLoaded ? 1 : 0,
                 transform: isLoaded ? "translateY(0)" : "translateY(40px)",
                 transition: "all 1s cubic-bezier(0.16, 1, 0.3, 1) 1.2s",
               }}
             >
-              <div className="absolute top-4 right-4 px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-500 text-[11px] font-medium uppercase tracking-wider">
-                Experiments
+              {/* Thumbnail */}
+              <div className="h-48 md:w-64 md:h-48 flex-shrink-0 bg-gradient-to-br from-green-900/20 to-emerald-900/20 rounded-xl relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-500 border border-white/5">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Terminal className="w-12 h-12 text-green-500/40" />
+                </div>
+                <div className="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-green-400 text-[11px] font-medium uppercase tracking-wider">
+                  Experiments
+                </div>
               </div>
-              <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-green-500/20 to-emerald-600/20 flex items-center justify-center mb-6 text-green-500">
-                <Terminal className="w-6 h-6" />
-              </div>
-              <h3 className="text-[24px] font-semibold mb-2 text-foreground">Web & Scripts</h3>
-              <p className="text-[15px] sm:text-[16px] text-muted-foreground leading-relaxed mb-6 max-w-[600px]">
-                I also build small websites and useful automation scripts. From simple HTML/CSS pages to Python utilities for data processing.
-              </p>
-              <div className="flex flex-wrap gap-2 mt-auto">
-                <span className="text-[12px] font-medium px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground">Python</span>
-                <span className="text-[12px] font-medium px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground">HTML/CSS</span>
-                <span className="text-[12px] font-medium px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground">Automation</span>
+
+              <div className="flex flex-col flex-1">
+                <h3 className="text-[24px] font-semibold mb-2 text-foreground">Web & Scripts</h3>
+                <p className="text-[15px] sm:text-[16px] text-muted-foreground leading-relaxed mb-6">
+                  I also build small websites and useful automation scripts. From simple HTML/CSS pages to Python utilities for data processing.
+                </p>
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  <span className="text-[12px] font-medium px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground">Python</span>
+                  <span className="text-[12px] font-medium px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground">HTML/CSS</span>
+                  <span className="text-[12px] font-medium px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground">Automation</span>
+                </div>
               </div>
             </div>
           </div>
@@ -692,6 +752,23 @@ export default function Portfolio() {
                         </p>
                       </div>
                       <div className="space-y-3">
+                        <a
+                          href="mailto:contact@angel.dev"
+                          className="w-full flex items-center gap-4 p-5 rounded-2xl bg-gradient-to-br from-orange-500 to-red-600 hover:from-orange-600 hover:to-red-700 text-white transition-all duration-300 hover:scale-[1.02] shadow-[0_4px_12px_rgba(249,115,22,0.3)] hover:shadow-[0_6px_16px_rgba(249,115,22,0.4)] group"
+                          style={{
+                            animation: "popIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0s both",
+                          }}
+                        >
+                          <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center group-hover:bg-white/20 transition-colors">
+                            <Mail className="w-6 h-6" />
+                          </div>
+                          <div className="flex-1 text-left">
+                            <p className="text-[15px] font-semibold">Email Me</p>
+                            <p className="text-[14px] opacity-80">contact@angel.dev</p>
+                          </div>
+                          <ExternalLink className="w-5 h-5 opacity-60 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
+                        </a>
+
                         <button
                           onClick={copyDiscord}
                           className="w-full flex items-center gap-4 p-5 rounded-2xl bg-[#5865F2] hover:bg-[#4752c4] text-white transition-all duration-300 hover:scale-[1.02] shadow-[0_4px_12px_rgba(88,101,242,0.3)] hover:shadow-[0_6px_16px_rgba(88,101,242,0.4)] group"
