@@ -5,25 +5,26 @@
 ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript&logoColor=white)
 
-A **Premium Minimalist** portfolio designed for a Game Developer. Built with modern web technologies to showcase projects, skills, and experience with a focus on aesthetics, smooth animations, and a rich dark mode experience.
+A **Premium Bento Grid** portfolio designed for a Code/Game Developer. Built with modern web technologies, it features a monochromatic aesthetic, interactive code snippets, and a high-performance grid layout.
 
 ---
 
 ## ✨ Features
 
-- **🎨 Premium Aesthetic**: Custom "noise" textures, ambient lighting effects, and glassmorphism.
-- **🌑 Rich Dark Mode**: Deep, soft gray themes (`#050505`) for a comfortable and high-end viewing experience.
-- **⚡ Smooth Animations**: Custom CSS keyframes for fade-ins, scroll reveals, and micro-interactions.
-- **📱 Fully Responsive**: Optimized for all devices, from mobile phones to large desktop screens.
-- **🚀 Performance First**: Built on Next.js 15 for blazing fast load times and SEO optimization.
+- **🍱 Bento Grid Layout**: A structured, modular design inspired by Apple/Vercel aesthetics.
+- **🎨 Monochromatic Theme**: Strictly grayscale palette (`#0d1117`) with subtle borders and glassmorphism.
+- **💻 Interactive Code Snippets**: A custom carousel component to showcase real Luau code (Sprint, Double Jump, Combat) with syntax highlighting.
+- **⚡ Smooth Animations**: Framer-like transitions across pages and hover effects.
+- **📱 Fully Responsive**: Optimized grid that stacks perfectly on mobile devices.
+- **🚀 Performance First**: Built on Next.js 15 for blazing fast load times.
 
 ## 🛠️ Tech Stack
 
 - **Framework**: [Next.js 15](https://nextjs.org/) (App Router)
-- **UI Library**: [React 19](https://react.dev/)
+- **UI Architecture**: React 19 + Radix UI Primitives
 - **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
 - **Icons**: [Lucide React](https://lucide.dev/)
-- **Deployment**: [Netlify](https://netlify.com/)
+- **Deployment**: [Netlify](https://netlify.com/) / Vercel
 
 ## 🚀 Getting Started
 
@@ -45,10 +46,6 @@ Follow these steps to run the project locally on your machine.
 2.  **Install dependencies:**
     ```bash
     npm install
-    # or
-    yarn install
-    # or
-    pnpm install
     ```
 
 3.  **Run the development server:**
@@ -63,11 +60,16 @@ Follow these steps to run the project locally on your machine.
 
 ```
 ├── app/
-│   ├── layout.tsx      # Root layout (fonts, metadata)
-│   ├── page.tsx        # Main single-page application
-│   └── globals.css     # Global styles & Tailwind config
-├── components/         # Reusable UI components
-├── public/             # Static assets
+│   ├── layout.tsx       # Root layout (fonts, metadata, favicon)
+│   ├── page.tsx         # Main Home Page (Bento Grid)
+│   ├── projects/        # Projects Page (Snippet Carousel)
+│   └── globals.css      # Tailwind & Global Styles
+├── components/
+│   ├── BentoGrid.tsx    # Grid Container
+│   ├── BentoCard.tsx    # Reusable Glass Card
+│   ├── SnippetCarousel.tsx # Interactive Code Showcase
+│   └── ui/              # Radix UI Primitives
+├── public/              # Assets (logo.jpg, etc.)
 └── ...
 ```
 
@@ -78,4 +80,4 @@ Follow these steps to run the project locally on your machine.
 
 ---
 
-*Desarrollado con ❤️ por Angel.*
+*Verified & Deployed by Angel.*
